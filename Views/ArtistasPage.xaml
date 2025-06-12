@@ -1,0 +1,68 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:HipHopMusic.ViewModels"
+             x:Class="HipHopMusic.Views.ArtistasPage"
+             Title="Top 10 Artistas"
+             BackgroundColor="Black">
+
+    <ContentPage.BindingContext>
+        <vm:ArtistasViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label Text="🎤 Top 10 Artistas"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="Red"
+                   HorizontalOptions="Center"
+                   Margin="0,10" />
+
+            <CollectionView ItemsSource="{Binding Artistas}"
+                            SelectionMode="Single"
+                            SelectionChanged="OnArtistaSeleccionado"
+                            Margin="10">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Red"
+                               BackgroundColor="Black"
+                               Padding="10"
+                               Margin="5"
+                               CornerRadius="10">
+                            <Grid ColumnDefinitions="100,*,Auto"
+                                  VerticalOptions="Center">
+                                <Image Source="{Binding Imagen}"
+                                       HeightRequest="80"
+                                       WidthRequest="80"
+                                       Aspect="AspectFill"
+                                       Grid.Column="0" />
+
+                                <StackLayout Grid.Column="1"
+                                             Padding="10,0"
+                                             Spacing="5">
+                                    <Label Text="{Binding Nombre}"
+                                           TextColor="White"
+                                           FontSize="20" />
+                                    <Label Text="Último Álbum:"
+                                           TextColor="Gray"
+                                           FontSize="12"
+                                           FontAttributes="Italic" />
+                                    <Label Text="{Binding UltimoAlbum}"
+                                           TextColor="Red"
+                                           FontSize="14" />
+                                </StackLayout>
+
+                                <Label Text="{Binding Ranking}"
+                                       TextColor="Red"
+                                       FontSize="28"
+                                       Grid.Column="2"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

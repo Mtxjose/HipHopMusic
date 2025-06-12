@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HipHopMusic.Views.InicioPage"
+             Title="Inicio"
+             BackgroundColor="Transparent">
+    <Grid>
+        <Image Source="fondo_hiphop.jpg"
+               Aspect="AspectFill"
+               Opacity="0.8" />
+        <VerticalStackLayout VerticalOptions="Center"
+                              HorizontalOptions="Center"
+                              Spacing="40"
+                              Padding="40">
+
+            <Label Text="🎤 Ritmo y Rima 🎧"
+                   FontSize="48"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="Explora el Top 10 del Hip-Hop"
+                   FontSize="22"
+                   TextColor="#FFD700" HorizontalOptions="Center"
+                   FontAttributes="Italic" />
+
+            <Button x:Name="BotonEntrar"
+                    Text="¡Dale al Beat!"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    BackgroundColor="#FFD700"
+                    CornerRadius="30"
+                    Padding="20,15"
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    Clicked="BotonEntrar_Clicked">
+                <Button.Shadow>
+                    <Shadow Brush="Black" Radius="10" Opacity="0.6" Offset="10,10" />
+                </Button.Shadow>
+            </Button>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

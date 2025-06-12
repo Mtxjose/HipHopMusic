@@ -1,0 +1,41 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HipHopMusic.Views.DetalleCancionPage"
+             Title="Detalle de Canción"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Imagen -->
+            <Image x:Name="ImagenCancion" HeightRequest="200" Aspect="AspectFill" />
+
+            <!-- Título -->
+            <Label x:Name="NombreCancion"
+                   FontSize="24"
+                   TextColor="Red"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <!-- Año -->
+            <Label x:Name="Anio"
+                   FontSize="16"
+                   TextColor="White" />
+
+            <!-- Duración -->
+            <Label x:Name="Duracion"
+                   FontSize="16"
+                   TextColor="White" />
+
+            <!-- Letra -->
+            <Label Text="Letra:"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Red" />
+
+            <Label x:Name="Letra"
+                   FontSize="14"
+                   TextColor="White"
+                   LineBreakMode="WordWrap" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
