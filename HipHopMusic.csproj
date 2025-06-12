@@ -1,0 +1,232 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>HipHopMusic</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>HipHopMusic</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.hiphopmusic</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
+		<WindowsPackageType>None</WindowsPackageType>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\bonethugs.jpg" />
+	  <None Remove="Resources\Images\bonethugsuno.jpg" />
+	  <None Remove="Resources\Images\bonethugs_cinco.jpg" />
+	  <None Remove="Resources\Images\bonethugs_cuatro.jpg" />
+	  <None Remove="Resources\Images\bonethugs_dos.jpg" />
+	  <None Remove="Resources\Images\bonethugs_seis.jpg" />
+	  <None Remove="Resources\Images\bonethugs_tres.jpg" />
+	  <None Remove="Resources\Images\cypresshill.jpg" />
+	  <None Remove="Resources\Images\cypresshilluno.jpg" />
+	  <None Remove="Resources\Images\cypress_cinco.jpg" />
+	  <None Remove="Resources\Images\cypress_cuatro.jpg" />
+	  <None Remove="Resources\Images\cypress_dos.jpg" />
+	  <None Remove="Resources\Images\cypress_seis.jpg" />
+	  <None Remove="Resources\Images\cypress_tres.jpg" />
+	  <None Remove="Resources\Images\drdre_cinco.jpg" />
+	  <None Remove="Resources\Images\drdre_cuatro.jpg" />
+	  <None Remove="Resources\Images\drdre_dos.jpg" />
+	  <None Remove="Resources\Images\drdre_seis.png" />
+	  <None Remove="Resources\Images\drdre_tres.jpg" />
+	  <None Remove="Resources\Images\dr_dre.jpg" />
+	  <None Remove="Resources\Images\dr_dreuno.jpg" />
+	  <None Remove="Resources\Images\eminem.jpg" />
+	  <None Remove="Resources\Images\eminemuno.jpg" />
+	  <None Remove="Resources\Images\eminem_cinco.jpg" />
+	  <None Remove="Resources\Images\eminem_cuatro.jpg" />
+	  <None Remove="Resources\Images\eminem_dos.jpg" />
+	  <None Remove="Resources\Images\eminem_seis.jpg" />
+	  <None Remove="Resources\Images\eminem_tres.jpg" />
+	  <None Remove="Resources\Images\fondo_hiphop.jpg" />
+	  <None Remove="Resources\Images\mobbdeep_cinco.jpg" />
+	  <None Remove="Resources\Images\mobbdeep_cuatro.jpg" />
+	  <None Remove="Resources\Images\mobbdeep_dos.jpg" />
+	  <None Remove="Resources\Images\mobbdeep_seis.jpg" />
+	  <None Remove="Resources\Images\mobbdeep_tres.jpg" />
+	  <None Remove="Resources\Images\mobb_deep.jpg" />
+	  <None Remove="Resources\Images\mobb_deepuno.jpg" />
+	  <None Remove="Resources\Images\nas.jpg" />
+	  <None Remove="Resources\Images\nasuno.jpg" />
+	  <None Remove="Resources\Images\nas_cinco.jpg" />
+	  <None Remove="Resources\Images\nas_cuatro.jpg" />
+	  <None Remove="Resources\Images\nas_dos.jpg" />
+	  <None Remove="Resources\Images\nas_seis.jpg" />
+	  <None Remove="Resources\Images\nas_tres.jpg" />
+	  <None Remove="Resources\Images\nwa.jpg" />
+	  <None Remove="Resources\Images\nwauno.jpg" />
+	  <None Remove="Resources\Images\nwa_cinco.jpg" />
+	  <None Remove="Resources\Images\nwa_cuatro.jpg" />
+	  <None Remove="Resources\Images\nwa_dos.jpg" />
+	  <None Remove="Resources\Images\nwa_seis.jpg" />
+	  <None Remove="Resources\Images\nwa_tres.jpg" />
+	  <None Remove="Resources\Images\psychorealm.jpg" />
+	  <None Remove="Resources\Images\psychorealmuno.jpg" />
+	  <None Remove="Resources\Images\psycho_cinco.jpg" />
+	  <None Remove="Resources\Images\psycho_cuatro.jpg" />
+	  <None Remove="Resources\Images\psycho_dos.jpg" />
+	  <None Remove="Resources\Images\psycho_seis.jpg" />
+	  <None Remove="Resources\Images\psycho_tres.jpg" />
+	  <None Remove="Resources\Images\tupac.jpg" />
+	  <None Remove="Resources\Images\tupacuno.jpg" />
+	  <None Remove="Resources\Images\tupac_cinco.jpg" />
+	  <None Remove="Resources\Images\tupac_cuatro.jpg" />
+	  <None Remove="Resources\Images\tupac_dos.jpg" />
+	  <None Remove="Resources\Images\tupac_seis.jpg" />
+	  <None Remove="Resources\Images\tupac_tres.jpg" />
+	  <None Remove="Resources\Images\wutang_cinco.jpg" />
+	  <None Remove="Resources\Images\wutang_clan.jpg" />
+	  <None Remove="Resources\Images\wutang_clanuno.jpg" />
+	  <None Remove="Resources\Images\wutang_cuatro.jpg" />
+	  <None Remove="Resources\Images\wutang_dos.jpg" />
+	  <None Remove="Resources\Images\wutang_seis.jpg" />
+	  <None Remove="Resources\Images\wutang_tres.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\bonethugs_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\bonethugs_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\bonethugs_dos.jpg" />
+	  <MauiImage Include="Resources\Images\bonethugs_seis.jpg" />
+	  <MauiImage Include="Resources\Images\bonethugs_tres.jpg" />
+	  <MauiImage Include="Resources\Images\cypress_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\cypress_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\cypress_dos.jpg" />
+	  <MauiImage Include="Resources\Images\cypress_seis.jpg" />
+	  <MauiImage Include="Resources\Images\cypress_tres.jpg" />
+	  <MauiImage Include="Resources\Images\drdre_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\drdre_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\drdre_dos.jpg" />
+	  <MauiImage Include="Resources\Images\drdre_seis.png" />
+	  <MauiImage Include="Resources\Images\drdre_tres.jpg" />
+	  <MauiImage Include="Resources\Images\eminem.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\bonethugs.jpg" />
+	  <MauiImage Include="Resources\Images\bonethugsuno.jpg" />
+	  <MauiImage Include="Resources\Images\cypresshill.jpg" />
+	  <MauiImage Include="Resources\Images\cypresshilluno.jpg" />
+	  <MauiImage Include="Resources\Images\dr_dre.jpg" />
+	  <MauiImage Include="Resources\Images\dr_dreuno.jpg" />
+	  <MauiImage Include="Resources\Images\eminemuno.jpg" />
+	  <MauiImage Include="Resources\Images\eminem_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\eminem_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\eminem_dos.jpg" />
+	  <MauiImage Include="Resources\Images\eminem_seis.jpg" />
+	  <MauiImage Include="Resources\Images\eminem_tres.jpg" />
+	  <MauiImage Include="Resources\Images\fondo_hiphop.jpg" />
+	  <MauiImage Include="Resources\Images\mobbdeep_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\mobbdeep_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\mobbdeep_dos.jpg" />
+	  <MauiImage Include="Resources\Images\mobbdeep_seis.jpg" />
+	  <MauiImage Include="Resources\Images\mobbdeep_tres.jpg" />
+	  <MauiImage Include="Resources\Images\mobb_deep.jpg" />
+	  <MauiImage Include="Resources\Images\mobb_deepuno.jpg" />
+	  <MauiImage Include="Resources\Images\nas.jpg" />
+	  <MauiImage Include="Resources\Images\nasuno.jpg" />
+	  <MauiImage Include="Resources\Images\nas_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\nas_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\nas_dos.jpg" />
+	  <MauiImage Include="Resources\Images\nas_seis.jpg" />
+	  <MauiImage Include="Resources\Images\nas_tres.jpg" />
+	  <MauiImage Include="Resources\Images\nwa.jpg" />
+	  <MauiImage Include="Resources\Images\nwauno.jpg" />
+	  <MauiImage Include="Resources\Images\nwa_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\nwa_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\nwa_dos.jpg" />
+	  <MauiImage Include="Resources\Images\nwa_seis.jpg" />
+	  <MauiImage Include="Resources\Images\nwa_tres.jpg" />
+	  <MauiImage Include="Resources\Images\psychorealm.jpg" />
+	  <MauiImage Include="Resources\Images\psychorealmuno.jpg" />
+	  <MauiImage Include="Resources\Images\psycho_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\psycho_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\psycho_dos.jpg" />
+	  <MauiImage Include="Resources\Images\psycho_seis.jpg" />
+	  <MauiImage Include="Resources\Images\psycho_tres.jpg" />
+	  <MauiImage Include="Resources\Images\tupac.jpg" />
+	  <MauiImage Include="Resources\Images\tupacuno.jpg" />
+	  <MauiImage Include="Resources\Images\tupac_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\tupac_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\tupac_dos.jpg" />
+	  <MauiImage Include="Resources\Images\tupac_seis.jpg" />
+	  <MauiImage Include="Resources\Images\tupac_tres.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_cinco.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_clan.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_clanuno.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_cuatro.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_dos.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_seis.jpg" />
+	  <MauiImage Include="Resources\Images\wutang_tres.jpg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="11.2.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\ArtistasPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\CancionesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\DetalleCancionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InicioPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>
